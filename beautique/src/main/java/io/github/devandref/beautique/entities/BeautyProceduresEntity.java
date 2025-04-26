@@ -2,12 +2,16 @@ package io.github.devandref.beautique.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.util.List;
 
+@Getter
+@Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "beauty_procedures")
 public class BeautyProceduresEntity extends BaseEntity {
@@ -27,35 +31,4 @@ public class BeautyProceduresEntity extends BaseEntity {
     @OneToMany(mappedBy = "beautyProcedure", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<AppointmentsEntity> appointments;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
-
-    public List<AppointmentsEntity> getAppointments() {
-        return appointments;
-    }
-
-    public void setAppointments(List<AppointmentsEntity> appointments) {
-        this.appointments = appointments;
-    }
 }
