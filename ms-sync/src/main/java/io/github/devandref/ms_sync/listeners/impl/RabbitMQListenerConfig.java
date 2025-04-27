@@ -33,7 +33,7 @@ public class RabbitMQListenerConfig implements ListenerConfig {
     }
 
     @Override
-    @RabbitListener(queues = "AppointmentQueue")
+    @RabbitListener(queues = "appointmentQueue")
     public void listenToAppointmentQueue(String message) {
         try {
             FullAppointmentDTO fullAppointmentDTO = objectMapper.readValue(message, FullAppointmentDTO.class);
